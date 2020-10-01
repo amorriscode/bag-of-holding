@@ -8,10 +8,11 @@ interface Props {
 
 export default function NavLink({ to, children }: Props) {
   const location = useLocation()
-
-  const activeStyles = location.pathname.includes(to)
-    ? 'border border-black'
-    : 'border border-transparent'
+  console.log(location)
+  const activeStyles =
+    location.pathname === to
+      ? 'border border-black'
+      : 'border border-transparent'
 
   return (
     <div className={`py-2 px-4 border-b-0 rounded-t-lg ${activeStyles}`}>

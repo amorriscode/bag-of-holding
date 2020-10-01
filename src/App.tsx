@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Details from './pages/Details'
 import Spells from './pages/Spells'
@@ -15,9 +15,6 @@ export function App() {
         <Nav />
 
         <Switch>
-          <Route path="/stats">
-            <Stats />
-          </Route>
           <Route path="/details">
             <Details />
           </Route>
@@ -26,6 +23,9 @@ export function App() {
           </Route>
           <Route path="/log">
             <Log />
+          </Route>
+          <Route path="/">
+            <Stats />
           </Route>
         </Switch>
       </div>
