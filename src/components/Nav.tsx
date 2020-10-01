@@ -4,7 +4,7 @@ import NavLink from './NavLink'
 
 export default function nav() {
   return (
-    <nav className="flex p-2">
+    <nav className="flex mt-2 mx-2">
       <NavLink to="/">Stats</NavLink>
       <NavLink to="/details">Details</NavLink>
       <NavLink to="/spells">Spells</NavLink>

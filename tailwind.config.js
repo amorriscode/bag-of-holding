@@ -5,7 +5,12 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'brand-green': '#26ab75',
+        'brand-yellow': '#efe643',
+      },
+    },
   },
   variants: {},
   plugins: [],

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Container from '../components/Container'
+
 export default function Details() {
-  return <div>Details</div>
+  return <Container>Details</Container>
 }

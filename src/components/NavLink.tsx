@@ -11,11 +11,13 @@ export default function NavLink({ to, children }: Props) {
   console.log(location)
   const activeStyles =
     location.pathname === to
-      ? 'border border-black'
+      ? 'border border-gray-400 bg-gray-100'
       : 'border border-transparent'
 
   return (
-    <div className={`py-2 px-4 border-b-0 rounded-t-lg ${activeStyles}`}>
+    <div
+      className={`relative z-10 py-2 px-4 border-b-0 rounded-t ${activeStyles}`}
+    >
       <Link to={to}>{children}</Link>
     </div>
   )
