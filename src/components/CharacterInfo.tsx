@@ -9,7 +9,10 @@ export default function CharacterInfo() {
   const onSubmit = (data: any) => console.log(data)
 
   return (
-    <form className="bg-white p-4 rounded" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="shadow bg-white p-4 rounded"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="mb-4 grid grid-cols-3 gap-4">
         <div className="col-span-2">
           <TextInput name="characterName" label="Name" ref={register} />

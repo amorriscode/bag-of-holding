@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Input from './Input'
+
 interface Props {
   name: string
   ref: React.Ref<HTMLInputElement>
@@ -9,17 +11,12 @@ interface Props {
 
 export default function TextInput({ name, ref, className, label }: Props) {
   return (
-    <div className="flex flex-col">
-      {label && (
-        <label htmlFor={name} className="text-xs uppercase font-bold">
-          {label}
-        </label>
-      )}
-      <input
-        className={`w-full bg-gray-200 rounded px-2 focus:border-brand-green focus:outline-none ${className}`}
-        name={name}
-        ref={ref}
-      />
-    </div>
+    <Input
+      name={name}
+      ref={ref}
+      className={className}
+      label={label}
+      type="text"
+    />
   )
 }
