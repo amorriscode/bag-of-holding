@@ -9,30 +9,24 @@ export default function CharacterInfo() {
   const onSubmit = (data: any) => console.log(data)
 
   return (
-    <form
-      className="flex space-x-4 justify-between"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <TextInput name="characterName" ref={register} className="w-2/6" />
-
-      <div className="space-y-4 w-3/6">
-        <div className="grid grid-cols-2 gap-4">
-          <TextInput name="class" ref={register} />
-          <TextInput name="level" ref={register} />
+    <form className="bg-white p-4 rounded" onSubmit={handleSubmit(onSubmit)}>
+      <div className="mb-4 grid grid-cols-3 gap-4">
+        <div className="col-span-2">
+          <TextInput name="characterName" label="Name" ref={register} />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <TextInput name="background" ref={register} />
-          <TextInput name="playerName" ref={register} />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <TextInput name="race" ref={register} />
-          <TextInput name="alignment" ref={register} />
+        <div className="col-span-1 flex space-x-4">
+          <TextInput name="level" label="Level" ref={register} />
+          <TextInput name="experience" label="Experience" ref={register} />
         </div>
       </div>
 
-      <TextInput name="experience" ref={register} className="w-1/6" />
+      <div className="grid grid-cols-4 gap-4">
+        <TextInput name="class" label="Class" ref={register} />
+        <TextInput name="race" label="Race" ref={register} />
+        <TextInput name="background" label="Background" ref={register} />
+        <TextInput name="alignment" label="Alignment" ref={register} />
+      </div>
     </form>
   )
 }

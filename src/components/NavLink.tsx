@@ -3,21 +3,16 @@ import { Link, useLocation } from 'react-router-dom'
 
 interface Props {
   to: string
-  children: React.ReactChild
+  children: React.ReactChild | React.ReactChild[]
 }
 
 export default function NavLink({ to, children }: Props) {
   const location = useLocation()
   console.log(location)
-  const activeStyles =
-    location.pathname === to
-      ? 'border border-gray-400 bg-gray-100'
-      : 'border border-transparent'
+  const activeStyles = location.pathname === to ? 'text-brand-green' : ''
 
   return (
-    <div
-      className={`relative z-10 py-2 px-4 border-b-0 rounded-t ${activeStyles}`}
-    >
+    <div className={`py-2 px-4 font-bold ${activeStyles}`}>
       <Link to={to}>{children}</Link>
     </div>
   )
