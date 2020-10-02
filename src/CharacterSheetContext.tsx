@@ -47,7 +47,6 @@ const CharacterSheetDispatchContext = createContext<Dispatch | undefined>(
 function characterSheetReducer(state: State, action: Action): State {
   switch (action.type) {
     case 'characterInfo': {
-      console.log(action.data)
       return { ...state, ...action.data }
     }
     default: {

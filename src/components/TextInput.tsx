@@ -7,19 +7,11 @@ type Props = {
   value: string
   className?: string
   label?: string
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const TextInput = forwardRef<HTMLInputElement, Props>(
-  ({ name, className, label, value }: Props, ref) => (
-    <Input
-      value={value}
-      name={name}
-      ref={ref}
-      className={className}
-      label={label}
-      type="text"
-    />
-  )
-)
+const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => (
+  <Input ref={ref} type="text" {...props} />
+))
 
 export default TextInput

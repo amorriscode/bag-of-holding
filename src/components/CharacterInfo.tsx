@@ -8,6 +8,7 @@ import {
 
 import TextInput from './TextInput'
 import NumberInput from './NumberInput'
+import { KeyboardEvent } from 'electron'
 
 type CharacterInfo = {
   characterName: string
@@ -20,7 +21,7 @@ type CharacterInfo = {
 }
 
 export default function CharacterInfo() {
-  const { handleSubmit, register } = useForm()
+  const { handleSubmit, register, setValue } = useForm()
   const {
     characterName,
     level,
@@ -48,6 +49,9 @@ export default function CharacterInfo() {
             label="Name"
             value={characterName}
             ref={register}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              handleSubmit(onSubmit)()
+            }}
           />
         </div>
 
@@ -57,6 +61,9 @@ export default function CharacterInfo() {
             label="Level"
             value={level}
             ref={register}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              handleSubmit(onSubmit)()
+            }}
           />
 
           <NumberInput
@@ -64,6 +71,9 @@ export default function CharacterInfo() {
             label="Experience"
             value={experience}
             ref={register}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              handleSubmit(onSubmit)()
+            }}
           />
         </div>
       </div>
@@ -74,6 +84,9 @@ export default function CharacterInfo() {
           label="Class"
           value={characterClass}
           ref={register}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            handleSubmit(onSubmit)()
+          }}
         />
 
         <TextInput name="race" label="Race" value={race} ref={register} />
@@ -83,6 +96,9 @@ export default function CharacterInfo() {
           label="Background"
           value={background}
           ref={register}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            handleSubmit(onSubmit)()
+          }}
         />
 
         <TextInput
@@ -90,6 +106,9 @@ export default function CharacterInfo() {
           label="Alignment"
           value={alignment}
           ref={register}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            handleSubmit(onSubmit)()
+          }}
         />
       </div>
 
