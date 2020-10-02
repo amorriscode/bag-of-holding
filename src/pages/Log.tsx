@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Container from '../components/Container'
+
 export default function Log() {
-  return <div>Log</div>
+  return <Container>Log</Container>
 }

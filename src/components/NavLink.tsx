@@ -1,21 +1,17 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-interface Props {
+type Props = {
   to: string
-  children: React.ReactChild
+  children: React.ReactChild | React.ReactChild[]
 }
 
 export default function NavLink({ to, children }: Props) {
   const location = useLocation()
-  console.log(location)
-  const activeStyles =
-    location.pathname === to
-      ? 'border border-black'
-      : 'border border-transparent'
+  const activeStyles = location.pathname === to ? 'text-brand-green' : ''
 
   return (
-    <div className={`py-2 px-4 border-b-0 rounded-t-lg ${activeStyles}`}>
+    <div className={`py-2 px-4 font-bold ${activeStyles}`}>
       <Link to={to}>{children}</Link>
     </div>
   )
