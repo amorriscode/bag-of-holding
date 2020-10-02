@@ -8,7 +8,6 @@ type Props = {
 
 export default function NavLink({ to, children }: Props) {
   const location = useLocation()
-  console.log(location)
   const activeStyles = location.pathname === to ? 'text-brand-green' : ''
 
   return (

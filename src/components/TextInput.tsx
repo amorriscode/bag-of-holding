@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import Input from './Input'
 
 type Props = {
   name: string
-  ref?: React.Ref<HTMLInputElement>
+  value: string
   className?: string
   label?: string
 }
 
-export default function TextInput({ name, ref, className, label }: Props) {
-  return (
+const TextInput = forwardRef<HTMLInputElement, Props>(
+  ({ name, className, label, value }: Props, ref) => (
     <Input
+      value={value}
       name={name}
       ref={ref}
       className={className}
@@ -19,4 +20,6 @@ export default function TextInput({ name, ref, className, label }: Props) {
       type="text"
     />
   )
-}
+)
+
+export default TextInput

@@ -1,12 +1,40 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
+import {
+  useCharacterSheet,
+  useCharacterSheetDispatch,
+} from '../CharacterSheetContext'
+
 import TextInput from './TextInput'
+import NumberInput from './NumberInput'
+
+type CharacterInfo = {
+  characterName: string
+  level: number
+  experience: number
+  class: string
+  race: string
+  background: string
+  alignment: string
+}
 
 export default function CharacterInfo() {
   const { handleSubmit, register } = useForm()
+  const {
+    characterName,
+    level,
+    experience,
+    characterClass,
+    race,
+    background,
+    alignment,
+  } = useCharacterSheet()
+  const characterSheetDispatch = useCharacterSheetDispatch()
 
-  const onSubmit = (data: any) => console.log(data)
+  const onSubmit = (data: CharacterInfo) => {
+    characterSheetDispatch({ type: 'characterInfo', data })
+  }
 
   return (
     <form
@@ -15,21 +43,57 @@ export default function CharacterInfo() {
     >
       <div className="mb-4 grid grid-cols-3 gap-4">
         <div className="col-span-2">
-          <TextInput name="characterName" label="Name" ref={register} />
+          <TextInput
+            name="characterName"
+            label="Name"
+            value={characterName}
+            ref={register}
+          />
         </div>
 
         <div className="col-span-1 grid grid-cols-2 gap-4">
-          <TextInput name="level" label="Level" ref={register} />
-          <TextInput name="experience" label="Experience" ref={register} />
+          <NumberInput
+            name="level"
+            label="Level"
+            value={level}
+            ref={register}
+          />
+
+          <NumberInput
+            name="experience"
+            label="Experience"
+            value={experience}
+            ref={register}
+          />
         </div>
       </div>
 
       <div className="grid grid-cols-4 gap-4">
-        <TextInput name="class" label="Class" ref={register} />
-        <TextInput name="race" label="Race" ref={register} />
-        <TextInput name="background" label="Background" ref={register} />
-        <TextInput name="alignment" label="Alignment" ref={register} />
+        <TextInput
+          name="characterClass"
+          label="Class"
+          value={characterClass}
+          ref={register}
+        />
+
+        <TextInput name="race" label="Race" value={race} ref={register} />
+
+        <TextInput
+          name="background"
+          label="Background"
+          value={background}
+          ref={register}
+        />
+
+        <TextInput
+          name="alignment"
+          label="Alignment"
+          value={alignment}
+          ref={register}
+        />
       </div>
+
+      <input className="hidden" type="submit" />
     </form>
   )
 }
