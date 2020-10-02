@@ -47,7 +47,9 @@ const CharacterSheetDispatchContext = createContext<Dispatch | undefined>(
 function characterSheetReducer(state: State, action: Action): State {
   switch (action.type) {
     case 'characterInfo': {
-      return { ...state, ...action.data }
+      const newState = { ...state, ...action.data }
+      window.ipcRenderer.invoke('setStoreValue', 'characterInfo', newState)
+      return newState
     }
     default: {
       throw new Error(`Unhandled action: ${action.type}`)
