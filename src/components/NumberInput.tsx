@@ -12,7 +12,7 @@ type Props = {
 }
 
 const NumberInput = forwardRef<HTMLInputElement, Props>((props: Props, ref) => (
-  <Input ref={ref} type="text" {...props} />
+  <Input ref={ref} type="number" {...props} />
 ))
 
 export default NumberInput

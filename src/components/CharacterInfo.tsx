@@ -8,7 +8,6 @@ import {
 
 import TextInput from './TextInput'
 import NumberInput from './NumberInput'
-import { KeyboardEvent } from 'electron'
 
 type CharacterInfo = {
   characterName: string
@@ -21,7 +20,7 @@ type CharacterInfo = {
 }
 
 export default function CharacterInfo() {
-  const { handleSubmit, register, setValue } = useForm()
+  const { handleSubmit, register } = useForm()
   const {
     characterName,
     level,

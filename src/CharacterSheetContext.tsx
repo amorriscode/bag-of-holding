@@ -1,17 +1,19 @@
 import React, { createContext, useContext, useReducer } from 'react'
 
-type Action = {
-  type: 'characterInfo'
-  data: {
-    characterName?: string
-    level?: number
-    experience?: number
-    characterClass?: string
-    race?: string
-    background?: string
-    alignment?: string
-  }
-}
+type Action =
+  | {
+      type: 'characterInfo'
+      data: {
+        characterName?: string
+        level?: number
+        experience?: number
+        characterClass?: string
+        race?: string
+        background?: string
+        alignment?: string
+      }
+    }
+  | { type: 'abilityScore'; data: { ability: string; score: number } }
 
 type Dispatch = (action: Action) => void
 
@@ -23,6 +25,7 @@ type State = {
   race: string
   background: string
   alignment: string
+  abilityScores: { [key: string]: number }
 }
 
 type CharacterSheetProviderProps = {
@@ -37,6 +40,14 @@ const defaultState = {
   race: '',
   background: '',
   alignment: '',
+  abilityScores: {
+    strength: 0,
+    dexterity: 0,
+    constitution: 0,
+    intelligence: 0,
+    wisdom: 0,
+    charisma: 0,
+  },
 }
 
 const CharacterSheetContext = createContext<State | undefined>(undefined)
@@ -51,8 +62,15 @@ function characterSheetReducer(state: State, action: Action): State {
       window.ipcRenderer.invoke('setStoreValue', 'characterInfo', newState)
       return newState
     }
+    case 'abilityScore': {
+      const abilityScores = { ...state.abilityScores }
+      abilityScores[action.data.ability] = action.data.score
+      const newState = { ...state, abilityScores }
+      window.ipcRenderer.invoke('setStoreValue', 'characterInfo', newState)
+      return newState
+    }
     default: {
-      throw new Error(`Unhandled action: ${action.type}`)
+      throw new Error(`Unhandled action: ${action}`)
     }
   }
 }
