@@ -16,7 +16,7 @@ export default function TextInput({ name, ref, className, label }: Props) {
       ref={ref}
       className={className}
       label={label}
-      type="text"
+      type="number"
     />
   )
 }

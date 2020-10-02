@@ -1,29 +1,32 @@
 import React from 'react'
 
-interface Props {
+type Props = {
   name: string
-  ref: React.Ref<HTMLInputElement>
   type: string
+  id?: string
+  ref?: React.Ref<HTMLInputElement>
   className?: string
   label?: string
 }
 
 export default function TextInput({
   name,
+  type,
+  id,
   ref,
   className,
   label,
-  type,
 }: Props) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       {label && (
-        <label htmlFor={name} className="text-xs uppercase font-bold">
+        <label htmlFor={id || name} className="text-xxs uppercase font-bold">
           {label}
         </label>
       )}
       <input
-        className={`w-full bg-gray-200 rounded p-2 border border-transparent focus:border-brand-green focus:outline-none ${className}`}
+        id={id || name}
+        className={`bg-gray-200 rounded p-2 border border-transparent focus:border-brand-green focus:outline-none ${className}`}
         name={name}
         ref={ref}
         type={type}

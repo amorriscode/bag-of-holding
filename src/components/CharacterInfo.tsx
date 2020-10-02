@@ -18,7 +18,7 @@ export default function CharacterInfo() {
           <TextInput name="characterName" label="Name" ref={register} />
         </div>
 
-        <div className="col-span-1 flex space-x-4">
+        <div className="col-span-1 grid grid-cols-2 gap-4">
           <TextInput name="level" label="Level" ref={register} />
           <TextInput name="experience" label="Experience" ref={register} />
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-interface Props {
+type Props = {
   to: string
   children: React.ReactChild | React.ReactChild[]
 }

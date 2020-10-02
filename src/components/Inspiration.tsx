@@ -1,9 +1,11 @@
 import React from 'react'
 
+import Checkbox from './Checkbox'
+
 export default function Inspiration() {
   return (
-    <div>
-      <div>Inspiration</div>
+    <div className="bg-white shadow rounded p-2">
+      <Checkbox name="inspiration" label="Inspiration" />
     </div>
   )
 }
