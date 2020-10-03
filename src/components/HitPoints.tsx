@@ -12,7 +12,7 @@ export default function ArmorClass() {
         <NumberInput name="maxHitPoints" />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-6">
         <div>
           <div className="uppercase text-xxs font-bold truncate">
             Current Hit Points

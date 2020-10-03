@@ -38,10 +38,10 @@ export default function CharacterInfo() {
 
   return (
     <form
-      className="shadow bg-white p-4 rounded"
+      className="shadow bg-white p-6 rounded"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="mb-4 grid grid-cols-3 gap-4">
+      <div className="mb-6 grid grid-cols-3 gap-6">
         <div className="col-span-2">
           <TextInput
             name="characterName"
@@ -54,7 +54,7 @@ export default function CharacterInfo() {
           />
         </div>
 
-        <div className="col-span-1 grid grid-cols-2 gap-4">
+        <div className="col-span-1 grid grid-cols-2 gap-6">
           <NumberInput
             name="level"
             label="Level"
@@ -77,7 +77,7 @@ export default function CharacterInfo() {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-6">
         <TextInput
           name="characterClass"
           label="Class"

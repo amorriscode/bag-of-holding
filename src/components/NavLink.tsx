@@ -11,7 +11,7 @@ export default function NavLink({ to, children }: Props) {
   const activeStyles = location.pathname === to ? 'text-brand-green' : ''
 
   return (
-    <div className={`py-2 px-4 font-bold ${activeStyles}`}>
+    <div className={`py-2 px-6 font-bold ${activeStyles}`}>
       <Link to={to}>{children}</Link>
     </div>
   )

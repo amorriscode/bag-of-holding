@@ -24,7 +24,7 @@ export default function Skills() {
     <div className="bg-white p-2 rounded shadow space-y-2">
       <div className="uppercase font-bold text-center text-sm">Skills</div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-6">
         <SkillsOption skill="Acrobatics" />
         <SkillsOption skill="Animal Handling" />
         <SkillsOption skill="Arcana" />

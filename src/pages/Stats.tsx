@@ -25,19 +25,19 @@ export default function Stats() {
     <Container>
       <CharacterInfo />
 
-      <div className="grid grid-cols-6 gap-4">
-        <div className="space-y-4 col-span-1 row-span-2">
+      <div className="grid grid-cols-6 gap-6">
+        <div className="space-y-6 col-span-1 row-span-2">
           <Inspiration />
           <AbilityScores />
         </div>
 
-        <div className="col-span-2 space-y-4 row-span-1">
+        <div className="col-span-2 space-y-6 row-span-1">
           <ProficiencyBonus />
           <SavingThrows />
         </div>
 
-        <div className="space-y-4 col-span-3 row-span-1">
-          <div className="grid grid-cols-3 gap-4">
+        <div className="space-y-6 col-span-3 row-span-1">
+          <div className="grid grid-cols-3 gap-6">
             <ArmorClass />
             <Initiative />
             <Speed />
@@ -45,7 +45,7 @@ export default function Stats() {
 
           <HitPoints />
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-6">
             <HitDice />
             <DeathSaves />
           </div>

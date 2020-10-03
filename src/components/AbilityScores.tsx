@@ -10,7 +10,7 @@ export default function AbilityScores() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="space-y-4">
+      <div className="space-y-6">
         <AbilityScore ability="strength" />
         <AbilityScore ability="dexterity" />
         <AbilityScore ability="constitution" />
