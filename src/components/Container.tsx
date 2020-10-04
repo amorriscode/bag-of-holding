@@ -7,9 +7,9 @@ type Props = {
 export default function Container({ children }: Props) {
   return (
     <>
-      <div className="bh-container mx-2 p-6 space-y-6">{children}</div>
+      <div className="mx-auto container p-6 space-y-6">{children}</div>
       <style>{`
-        .bh-container {
+        .container {
           min-width: 800px;
         }
       `}</style>
