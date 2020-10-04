@@ -14,10 +14,12 @@ type Action =
       }
     }
   | { type: 'abilityScore'; data: { ability: string; score: number } }
+  | { type: 'loadCharacter'; data: State }
 
 type Dispatch = (action: Action) => void
 
 type State = {
+  id: string
   characterName: string
   level: number
   experience: number
@@ -32,7 +34,8 @@ type CharacterSheetProviderProps = {
   children: React.ReactNode
 }
 
-const defaultState = {
+export const defaultState = {
+  id: '',
   characterName: '',
   level: 0,
   experience: 0,
@@ -57,16 +60,19 @@ const CharacterSheetDispatchContext = createContext<Dispatch | undefined>(
 
 function characterSheetReducer(state: State, action: Action): State {
   switch (action.type) {
+    case 'loadCharacter': {
+      return { ...action.data }
+    }
     case 'characterInfo': {
       const newState = { ...state, ...action.data }
-      window.ipcRenderer.invoke('setStoreValue', 'characterInfo', newState)
+      window.ipcRenderer.invoke('setStoreValue', state.id, newState)
       return newState
     }
     case 'abilityScore': {
       const abilityScores = { ...state.abilityScores }
       abilityScores[action.data.ability] = action.data.score
       const newState = { ...state, abilityScores }
-      window.ipcRenderer.invoke('setStoreValue', 'characterInfo', newState)
+      window.ipcRenderer.invoke('setStoreValue', state.id, newState)
       return newState
     }
     default: {
