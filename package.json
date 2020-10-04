@@ -92,6 +92,7 @@
   "dependencies": {
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
+    "cuid": "^2.1.8",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^6.0.0",
     "react": "^16.13.1",

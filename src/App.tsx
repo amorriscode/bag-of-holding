@@ -1,38 +1,13 @@
 import * as React from 'react'
-import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { CharacterSheetProvider } from './CharacterSheetContext'
 
-import Details from './pages/Details'
-import Spells from './pages/Spells'
-import Log from './pages/Log'
-import Stats from './pages/Stats'
-
-import Nav from './components/Nav'
+import Wrapper from './pages/Wrapper'
 
 export function App() {
   return (
     <CharacterSheetProvider>
-      <Router>
-        <div>
-          <Nav />
-
-          <Switch>
-            <Route path="/details">
-              <Details />
-            </Route>
-            <Route path="/spells">
-              <Spells />
-            </Route>
-            <Route path="/log">
-              <Log />
-            </Route>
-            <Route path="/">
-              <Stats />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+      <Wrapper />
     </CharacterSheetProvider>
   )
 }

@@ -22,7 +22,7 @@ import AttacksAndSpellcasting from '../components/AttacksAndSpellcasting'
 
 export default function Stats() {
   return (
-    <Container>
+    <>
       <CharacterInfo />
 
       <div className="grid grid-cols-6 gap-6">
@@ -59,6 +59,6 @@ export default function Stats() {
           <Skills />
         </div>
       </div>
-    </Container>
+    </>
   )
 }
